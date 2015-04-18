@@ -1,0 +1,13 @@
+= Simple Spring MVC add that consumes web service uri from user provided service
+
+== Create UPS
+
+[source,bash]
+----
+$ cf push
+$ cf cups my-ups -p '{ "uri": "aServiceUri", "tag": "ws1" }'
+$ cf bind-service spring-mvc-ups my-ups
+$ curl -i http://spring-mvc-ups.10.244.0.34.xip.io/config
+$ cf logs spring-mvc-ups --recent
+----
+

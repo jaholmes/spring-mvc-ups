@@ -1,0 +1,7 @@
+---
+applications:
+- name: spring-mvc-ups
+  memory: 512M
+  instances: 1
+  path: target/SpringMVC.war
+
