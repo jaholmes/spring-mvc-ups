@@ -1,4 +1,4 @@
-= Simple Spring MVC add that consumes web service uri from user provided service
+= Simple Spring MVC app that consumes web service uri from user provided service
 
 == Create UPS
 
