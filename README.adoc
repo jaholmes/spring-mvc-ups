@@ -35,7 +35,7 @@ System-Provided:
   ]
  }
 }
-$ curl -i http://spring-mvc-ups-<random word>.<your app domain>/config
+$ curl -i http://spring-mvc-ups.<your app domain>/config
 $ cf logs spring-mvc-ups --recent
 
 ----
