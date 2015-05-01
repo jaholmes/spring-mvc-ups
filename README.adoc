@@ -5,9 +5,37 @@
 [source,bash]
 ----
 $ cf push
-$ cf cups my-ups -p '{ "uri": "aServiceUri", "tag": "ws1" }'
-$ cf bind-service spring-mvc-ups my-ups
-$ curl -i http://spring-mvc-ups.10.244.0.34.xip.io/config
-$ cf logs spring-mvc-ups --recent
-----
+$ cf cups my-ups -p uri,tag
 
+uri> https://host:port/path                  
+
+tag> ws1
+Creating user provided service my-ups in org my-org / space development as jeff...
+OK
+$ cf bind-service spring-mvc-ups my-ups
+$ cf restage spring-mvc-ups
+$ cf env spring-mvc-ups
+Getting env variables for app spring-mvc-ups in org my-org / space development as jeff...
+OK
+
+System-Provided:
+{
+ "VCAP_SERVICES": {
+  "user-provided": [
+   {
+    "credentials": {
+     "tag": "ws1",
+     "uri": "https://host:port/path"
+    },
+    "label": "user-provided",
+    "name": "my-ups",
+    "syslog_drain_url": "",
+    "tags": []
+   }
+  ]
+ }
+}
+$ curl -i http://spring-mvc-ups-<random word>.<your app domain>/config
+
+----
+ 
